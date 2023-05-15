@@ -1,0 +1,116 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Hotel index{% endblock %}
+
+{% block body %}
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Category List</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">Category</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+        <!-- Default box -->
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Category List Table</h3>
+
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="card-body">
+    <h1>Hotel index</h1>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Keywords</th>
+                <th>Description</th>
+                <th>Image</th>
+                <th>Star</th>
+                <th>Phone</th>
+                <th>Fax</th>
+                <th>Email</th>
+                <th>City</th>
+                <th>Country</th>
+                <th>Location</th>
+                <th>Status</th>
+                <th>Created_at</th>
+                <th>Updated_at</th>
+                <th>End</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for hotel in hotels %}
+            <tr>
+                <td>{{ hotel.id }}</td>
+                <td>{{ hotel.title }}</td>
+                <td>{{ hotel.keywords }}</td>
+                <td>{{ hotel.description }}</td>
+                <td>{{ hotel.image }}</td>
+                <td>{{ hotel.star }}</td>
+                <td>{{ hotel.phone }}</td>
+                <td>{{ hotel.fax }}</td>
+                <td>{{ hotel.email }}</td>
+                <td>{{ hotel.city }}</td>
+                <td>{{ hotel.country }}</td>
+                <td>{{ hotel.location }}</td>
+                <td>{{ hotel.status }}</td>
+                <td>{{ hotel.createdAt ? hotel.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ hotel.updatedAt ? hotel.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ hotel.end }}</td>
+                <td>
+                    <a href="{{ path('admin_hotel_show', {'id': hotel.id}) }}">show</a>
+                    <a href="{{ path('admin_hotel_edit', {'id': hotel.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="17">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_hotel_new') }}">Create new</a>
+            </div>
+            <!-- /.card-body -->
+            <div class="card-footer">
+                Footer
+            </div>
+            <!-- /.card-footer-->
+        </div>
+        <!-- /.card -->
+
+    </section>
+    <!-- /.content -->
+</div>
+    <!-- /.content-wrapper -->
+
+
+
+{% endblock %}

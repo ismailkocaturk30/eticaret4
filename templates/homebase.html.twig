@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}{% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="{% block description %}En Kapsamlı Online Tatil!{% endblock %}">
+        <meta name="keywords" content="{% block keywords %}Kumsal,Güneş,Tatil,Huzur,Otel,5 yıldızlı{% endblock %}">
+        <meta name="author" content="İsmail KOCATÜRK">
+
+        {% block head %}{% include('home/head.html.twig') %}{% endblock %}
+        {% block stylesheet %}{% endblock %}
+    </head>
+    <body>
+        {% block header %} {% include('home/header.html.twig') %} {% endblock %}
+        {% block sidebar %} {% include('home/sidebar.html.twig') %} {% endblock %}
+        {% block slider %} {% endblock %}
+        {% block body %}  {% endblock %}
+        {% block footer %} {% include('home/foother.html.twig') %} {% endblock %}
+        {% block javascript %}{% include('home/javascripts.html.twig') %}{% endblock %}
+    </body>
+</html>
